@@ -12,7 +12,7 @@ export function throttle (fn, delay, mustRunDelay) {
     if (!tStart) {
       tStart = tCurr
     }
-    if (tCurr - tStart >= mustRunDelay) {
+    if (typeof mustRunDelay === 'number' && tCurr - tStart >= mustRunDelay) {
       fn.apply(context, args)
     } else {
       timer = setTimeout(() => {
