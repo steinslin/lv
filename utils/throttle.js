@@ -6,9 +6,10 @@ fn('run')
  */
 
 export function throttle (fn, delay, mustRunDelay) {
-  let [timet, tStart] = [null, undefined]
+  let [timer, tStart] = [null, undefined]
   return function (...args) {
     const [context, tCurr] = [this, +new Date()]
+    clearTimeout(timer)
     if (!tStart) {
       tStart = tCurr
     }
@@ -21,3 +22,4 @@ export function throttle (fn, delay, mustRunDelay) {
     }
   }
 }
+
