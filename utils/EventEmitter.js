@@ -1,5 +1,5 @@
 class Event {
-  constructor(props) {
+  constructor (props) {
     this.listeners = {}
   }
   on (evtName, listener) {
