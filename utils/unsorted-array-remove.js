@@ -4,8 +4,8 @@ let list = ['a', 'b', 'c', 'd', 'e']
 remove(list, 2) // remove 'c'
 console.log(list) // returns ['a', 'b', 'e', 'd'] (no 'c')
 
-This works by popping the last element 
-(which is fast because it doesn't need shift all array elements) 
+This works by popping the last element
+(which is fast because it doesn't need shift all array elements)
 and overwriting the removed index with this element.
  */
 
