@@ -1,6 +1,21 @@
-class Event {
+export class Event {
   constructor (props) {
     this.listeners = {}
+  }
+  add (evtName, listener, once) {
+    if (typeof evtName !== 'string') {
+      throw new Error('the first arg must be a string')
+    }
+    if (typeof listener !== 'function') {
+      throw new Error('the second arg must be a function')
+    }
+    let listeners = this.listeners[evtName] || []
+    listeners.push({
+      listener,
+      context: this,
+      once
+    })
+    this.listeners[evtName] = listeners
   }
   on (evtName, listener) {
     this.add(evtName, listener)
@@ -31,23 +46,6 @@ class Event {
   once (evtName, listener) {
     this.add(evtName, listener, true)
   }
-  add (evtName, listener, once) {
-    if (typeof evtName !== 'string') {
-      throw new Error('the first arg must be a string')
-    }
-    if (typeof listener !== 'function') {
-      throw new Error('the second arg must be a function')
-    }
-    let listeners = this.listeners[evtName] || []
-    listeners.push({
-      listener,
-      context: this,
-      once
-    })
-    this.listeners[evtName] = listeners
-  }
 }
 
 export default new Event()
-
-export {Event}
