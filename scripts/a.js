@@ -4,8 +4,10 @@
 //   obj.a++
 // }, 1000)
 
-import { a } from './index.js'
+import b, { a } from './index.js'
+import { readFile } from 'fs'
 
 setInterval(() => {
-  console.log(a)
+  console.log(a, b)
+  console.log(readFile)
 }, 1000)

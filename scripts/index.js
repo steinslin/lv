@@ -12,11 +12,15 @@
 
 // export default c = 1
 
-export default function c () {
-  console.log('c')
-}
+// export default function c () {
+//   console.log('c')
+// }
 
-setTimeout(() => {
-  /* eslint-disable */
-  c = 2
-}, 1000)
+// setTimeout(() => {
+//   /* eslint-disable */
+//   c = 2
+// }, 1000)
+
+module.exports = {
+  a: 1
+}
