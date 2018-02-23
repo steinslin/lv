@@ -1,6 +1,6 @@
 {
   "name": "lv-util",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a library",
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
