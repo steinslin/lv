@@ -2,7 +2,7 @@ export function promisify (fn) {
   if (typeof fn !== 'function') {
     throw new TypeError('Argument to promisify must be a function')
   }
-  if (fn.then) {
+  if (typeof fn.then === 'function') {
     return fn
   }
   return (...args) => {
