@@ -1,13 +1,12 @@
 {
   "name": "lv-util",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a library",
   "main": "lib/index.common.js",
   "module": "lib/index.esm.js",
   "scripts": {
     "code": "babel scripts/a.js -o lib/a.js",
-    "build": "rollup -c",
-    "release": "npm run build & npm publish"
+    "build": "rollup -c"
   },
   "files": ["lib", "utils"],
   "repository": {
