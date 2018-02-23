@@ -10,3 +10,4 @@ report
 coverage
 package-lock.json
 dist
+lib
