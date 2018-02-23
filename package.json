@@ -1,17 +1,19 @@
 {
-  "name": "lv",
-  "version": "1.0.0",
+  "name": "lv-util",
+  "version": "0.0.1",
   "description": "a library",
-  "main": "index.js",
+  "main": "lib/index.common.js",
+  "module": "lib/index.esm.js",
   "scripts": {
-    "lint": "eslint ./utils --fix",
-    "code": "babel scripts/a.js -o lib/a.js"
+    "code": "babel scripts/a.js -o lib/a.js",
+    "build": "rollup -c"
   },
+  "files": ["lib", "utils"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linrui1994/lv.git"
+    "url": "https://github.com/linrui1994/lv.git"
   },
-  "author": "",
+  "author": "steins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/linrui1994/lv/issues"
@@ -30,6 +32,10 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "rollup": "^0.54.1",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2"
   }
 }
