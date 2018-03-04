@@ -1,3 +1,8 @@
+/*
+ * promise callback based & error first function
+ * like: fs.readFile
+ */
+
 export function promisify (fn) {
   if (typeof fn !== 'function') {
     throw new TypeError('Argument to promisify must be a function')
