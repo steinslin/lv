@@ -1,6 +1,6 @@
 export function qs (arr) {
-  if (arr.length < =1) {
-    return
+  if (arr.length <= 1) {
+    return arr
   }
   const left = []
   const right = []
@@ -8,4 +8,5 @@ export function qs (arr) {
   for (let v of arr) {
     v < p ? left.push(v) : right.push(v)
   }
+  return [...qs(left), p, ...qs(right)]
 }
