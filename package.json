@@ -7,7 +7,7 @@
   "scripts": {
     "code": "babel scripts/a.js -o lib/a.js",
     "build": "rollup -c",
-    "test": "cross-env BABEL_ENV=test mocha --file test/utils.spec.js --require babel-core/register"
+    "test": "cross-env BABEL_ENV=test mocha --require babel-core/register --recursive ./test"
   },
   "files": [
     "lib",

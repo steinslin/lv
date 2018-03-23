@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { promisify, promisifyAll } from '../lib/index.esm.js'
+import { promisify, promisifyAll } from '../index.js'
 import { describe, it } from 'mocha'
 
 function read (name, cb) {
