@@ -14,13 +14,21 @@ function read2 (name, cb) {
   }, DELAY)
 }
 
+function read3 (name, key, cb) {
+  setTimeout(() => {
+    cb(null, name, key)
+  })
+}
+
 const DELAY = 30
 
 describe('utils', () => {
   it('promisify', async () => {
-    const readAsync = promisify(read)
+    const [ readAsync, read3Async ] = [ promisify(read), promisify(read3) ]
     const result = await readAsync('lin')
+    const result2 = await read3Async('lin', 'rui')
     expect(result).to.equal('lin')
+    expect(result2).to.deep.equal(['lin', 'rui'])
   })
   it('promisifyAll', async () => {
     const obj = promisifyAll({ read, read2 })
