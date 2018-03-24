@@ -15,7 +15,6 @@ export default {
     presets: [['env', {
       'modules': false
     }], 'stage-2'],
-    runtimeHelpers: true,
-    babelrc: false
+    runtimeHelpers: true
   })]
 }
