@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { promisify, promisifyAll, camelToUnderline, deepClone, sleep } from '../index.js'
+import { promisify, promisifyAll, camelToUnderline, deepClone, sleep, flatten } from '../index.js'
 import { describe, it } from 'mocha'
 
 function read (name, cb) {
@@ -52,5 +52,9 @@ describe('utils', () => {
     const t = +new Date()
     await sleep(DELAY)
     expect((+new Date() - t) >= DELAY).to.equal(true)
+  })
+  it('flatten', async () => {
+    const arr = [1, [2, 3, [4, 5, [6], 7]], 8, [9]]
+    expect(flatten(arr)).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9])
   })
 })
