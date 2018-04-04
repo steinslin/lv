@@ -20,6 +20,9 @@ export class Event {
   on (evtName, listener) {
     this.add(evtName, listener)
   }
+  emit (evtName, ...args) {
+    this.fire(evtName, ...args)
+  }
   fire (evtName, ...args) {
     if (typeof evtName !== 'string') {
       return

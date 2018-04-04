@@ -1,4 +1,3 @@
-export { call } from './utils/call.js'
 export { camelToUnderline } from './utils/camelToUnderline.js'
 export { chunk } from './utils/chunk.js'
 export { countOccurrences } from './utils/countOccurrences.js'
