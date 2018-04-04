@@ -15,6 +15,7 @@ export default {
     presets: [['env', {
       'modules': false
     }], 'stage-2'],
-    runtimeHelpers: true
+    runtimeHelpers: true,
+    plugins: ['external-helpers']
   })]
 }
