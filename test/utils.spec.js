@@ -20,6 +20,9 @@ function read3 (name, key, cb) {
   })
 }
 
+function noopSync () {
+}
+
 const DELAY = 30
 
 describe('utils', () => {
@@ -30,18 +33,22 @@ describe('utils', () => {
     expect(result).to.equal('lin')
     expect(result2).to.deep.equal(['lin', 'rui'])
   })
+
   it('promisifyAll', async () => {
-    const obj = promisifyAll({ read, read2 })
+    const obj = promisifyAll({ read, read2, noopSync })
     const result = await obj.readAsync('lin')
     const result2 = await obj.read2Async('rui')
     expect(result).to.equal('lin')
     expect(result2).to.equal('rui')
+    expect(obj.noopSyncAsync).to.equal(undefined)
   })
+
   it('camelToUnderline', () => {
     expect(camelToUnderline('LinRui')).to.equal('lin_rui')
     expect(camelToUnderline('linRui')).to.equal('lin_rui')
     expect(camelToUnderline('linrui')).to.equal('linrui')
   })
+
   it('deepClone', () => {
     const obj = {
       a: 1,
@@ -56,11 +63,13 @@ describe('utils', () => {
     expect(deepClone(obj)).to.deep.equal({ ...obj })
     expect(deepClone(obj)).to.not.equal(obj)
   })
+
   it('sleep', async () => {
     const t = +new Date()
     await sleep(DELAY)
     expect((+new Date() - t) >= DELAY).to.equal(true)
   })
+
   it('flatten', async () => {
     const arr = [1, [2, 3, [4, 5, [6], 7]], 8, [9]]
     expect(flatten(arr)).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9])

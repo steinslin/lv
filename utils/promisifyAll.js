@@ -5,7 +5,7 @@ export function promisifyAll (obj) {
     return obj
   }
   Object.keys(obj).forEach(key => {
-    if (typeof obj[key] === 'function') {
+    if (typeof obj[key] === 'function' && !/[sS]ync$/.test(key)) {
       obj[`${key}Async`] = promisify(obj[key])
     }
   })
