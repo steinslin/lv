@@ -129,4 +129,11 @@ describe('utils', () => {
     expect(util.underlineToCamel(t2)).to.equal('linRuiTest')
     expect(util.underlineToCamel(t3)).to.equal('LinRui_')
   })
+
+  it('compose', () => {
+    const add = x => x + 2
+    const multiply = x => x * 3
+    expect(util.compose(add, multiply)(3)).to.equal(11)
+    expect(util.compose(multiply, add)(3)).to.equal(15)
+  })
 })
