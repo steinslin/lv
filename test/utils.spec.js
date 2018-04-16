@@ -135,5 +135,6 @@ describe('utils', () => {
     const multiply = x => x * 3
     expect(util.compose(add, multiply)(3)).to.equal(11)
     expect(util.compose(multiply, add)(3)).to.equal(15)
+    expect(util.compose(add, multiply, add)(3)).to.equal(17)
   })
 })
