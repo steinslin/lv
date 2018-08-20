@@ -33,18 +33,15 @@ export class Event {
     }
     listeners.forEach((listener, index, arr) => {
       listener.listener.apply(listener.context, args)
-      if (listener.once) {
-        arr.splice(index, 1)
-      }
     })
+    this.listeners[evtName] = listeners.filter(listener => !listener.once);
   }
   remove (evtName) {
-    // pop
     if (typeof evtName !== 'string') {
       return
     }
-    const listeners = this.listeners[evtName] || []
-    listeners.pop()
+    var listeners = this.listeners[evtName] || [];
+    this.listeners[evtName] = listeners.filter(obj => obj.listener !== listener)
   }
   once (evtName, listener) {
     this.add(evtName, listener, true)
