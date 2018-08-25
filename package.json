@@ -6,8 +6,10 @@
   "module": "lib/index.esm.js",
   "scripts": {
     "code": "babel scripts/a.js -o lib/a.js",
+    "babel": "babel index.js",
     "build": "rollup -c",
-    "test": "cross-env BABEL_ENV=test mocha --require babel-core/register --recursive ./test"
+    "test": "cross-env BABEL_ENV=test mocha --require babel-core/register --recursive ./test",
+    "lint": "eslint --fix utils"
   },
   "files": [
     "lib",

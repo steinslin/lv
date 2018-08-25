@@ -34,13 +34,13 @@ export class Event {
     listeners.forEach((listener, index, arr) => {
       listener.listener.apply(listener.context, args)
     })
-    this.listeners[evtName] = listeners.filter(listener => !listener.once);
+    this.listeners[evtName] = listeners.filter(listener => !listener.once)
   }
-  remove (evtName) {
+  remove (evtName, listener) {
     if (typeof evtName !== 'string') {
       return
     }
-    var listeners = this.listeners[evtName] || [];
+    var listeners = this.listeners[evtName] || []
     this.listeners[evtName] = listeners.filter(obj => obj.listener !== listener)
   }
   once (evtName, listener) {
